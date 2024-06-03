@@ -1,15 +1,31 @@
+import { Link, NavLink } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
 
+    const { user, logOut } = useAuth();
+
+    const handleLogOut = () => {
+        logOut()
+            .then()
+            .catch(error => console.log(error));
+    }
+
     const navLinks = <>
-        <li><a>Home</a></li>
-        <li><a>All Tests</a></li>
-        <li><a>About Us</a></li>
-        <li><a>Contact</a></li>
+        <li><NavLink to="/" >Home</NavLink></li>
+        <li><NavLink to="/all-tests" >All Tests</NavLink></li>
+        <li><NavLink to="/about-us" >About Us</NavLink></li>
+        <li><NavLink to="/contact" >Contact</NavLink></li>
+        {
+            user && <li><NavLink to="/user-profile" >User Profile</NavLink></li>
+
+        }
     </>
+
+
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -19,16 +35,21 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Nokkhotro Diagnostic Center</a>
+                    <a className="text-2xl font-bold">Nokkhotro Diagnostic Center</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu menu-horizontal px-2 uppercase space-x-2" >
                         {navLinks}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn mr-2">Patient Portal</a>
-                    <a className="btn">Admin Portal</a>
+                    {
+                        user ? <> <span className="mx-2">Welcome {user?.displayName}</span>
+                            <Link to="/"><button className="btn mr-2">Patient Portal</button></Link>
+                            <button onClick={handleLogOut} className="btn">Log out</button>
+                        </> :
+                            <Link to="/login" className="btn">Login</Link>
+                    }
                 </div>
             </div>
         </div>
