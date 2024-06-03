@@ -1,9 +1,15 @@
+import Featured from "./Featured";
+import Promotions from "./Promotions";
+import Personalized from "./Personalized";
+
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is home</h1>
-        </div>
+        <>
+            <Featured></Featured>
+            <Promotions></Promotions>
+            <Personalized></Personalized>
+        </>
     );
 };
 
