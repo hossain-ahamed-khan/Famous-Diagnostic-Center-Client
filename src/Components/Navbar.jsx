@@ -16,16 +16,12 @@ const Navbar = () => {
         <li><NavLink to="/all-tests" >All Tests</NavLink></li>
         <li><NavLink to="/about-us" >About Us</NavLink></li>
         <li><NavLink to="/contact" >Contact</NavLink></li>
-        {
-            user && <li><NavLink to="/user-profile" >User Profile</NavLink></li>
-
-        }
     </>
 
 
     return (
         <div>
-            <div className="navbar">
+            <div className="navbar shadow-md bg-[#f8f8f8]">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -45,10 +41,10 @@ const Navbar = () => {
                 <div className="navbar-end">
                     {
                         user ? <> <span className="mx-2">Welcome {user?.displayName}</span>
-                            <Link to="/"><button className="btn mr-2">Patient Portal</button></Link>
+                            <Link to="/dashboard/admin-home"><button className="btn mr-2">Dashboard</button></Link>
                             <button onClick={handleLogOut} className="btn">Log out</button>
                         </> :
-                            <Link to="/login" className="btn">Login</Link>
+                            <Link to="/login" className="btn bg-[#8aeed5] hover:bg-[#63b9db]">Login</Link>
                     }
                 </div>
             </div>

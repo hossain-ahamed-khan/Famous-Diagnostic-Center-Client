@@ -1,12 +1,14 @@
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom";
-
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 
 const Register = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useAuth();
+    const axiosPublic = useAxiosPublic();
     const navigate = useNavigate();
 
 
@@ -20,51 +22,39 @@ const Register = () => {
                 updateUserProfile(data.name)
                     .then(() => {
                         console.log("user profile updated")
+
+                        // send user info to the database 
                         const userInfo = {
                             name: data.name,
                             email: data.email,
                             blood_group: data.blood_group,
-                            district: data.district,
-                            upazila: data.upazila,
+                            // district: data.district,
+                            // upazila: data.upazila,
                         }
-                        console.log(userInfo)
-
-                        navigate("/");
+                        console.log(userInfo);
+                        axiosPublic.post("/users", userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: "center",
+                                        title: "User created successfully",
+                                        icon: "success",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate("/");
+                                }
+                            })
                     })
                     .catch(error => console.log(error))
             })
-        // send user info to the database 
-        // const userInfo = {
-        //     name: data.name,
-        //     email: data.email,
-        //     blood_group: data.blood_group,
-        //     district: data.district,
-        //     upazila: data.upazila,
-        // }
-        // console.log(userInfo);
-        // axiosPublic.post("/user", userInfo)
-        //     .then(res => {
-        //         if (res.data.insertedId) {
-        //             reset();
-        //             Swal.fire({
-        //                 position: "center",
-        //                 title: "User created successfully",
-        //                 icon: "success",
-        //                 showConfirmButton: false,
-        //                 timer: 1500
-        //             });
-        //             navigate("/");
-        //         }
-        //     })
-        // })
-        // .catch(error => console.log(error))
     }
-
     return (
         <>
-            <div className="hero min-h-screen">
-                <div className="hero-content w-1/2 mx-auto">
-                    <div className="card shrink-0 w-full border-2">
+            <div className="hero min-h-screen bg-base-200">
+                <div className="hero-content w-full lg:w-1/2 mx-auto">
+                    <div className="card shrink-0 w-full border-2 shadow-2xl bg-base-100">
                         <h1 className="text-4xl font-bold text-center mt-5">Register</h1>
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
 
@@ -108,31 +98,27 @@ const Register = () => {
                                     {errors.blood_group?.type === "required" && <span className="text-red-600">This field is required</span>}
                                 </div>
 
-                                <div className="form-control">
+                                {/* <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">District</span>
                                     </label>
                                     <select className="select select-bordered w-full" defaultValue="default" {...register("district", { required: true })}>
                                         <option disabled value="default">Select a district</option>
                                         <option value="dhaka">Dhaka</option>
-                                        <option value="gajipur">Gajipur</option>
-                                        <option value="kishoreganj">Kishoreganj</option>
                                     </select>
                                     {errors.district?.type === "required" && <span className="text-red-600">This field is required</span>}
-                                </div>
+                                </div> */}
 
-                                <div className="form-control">
+                                {/* <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Upazila</span>
                                     </label>
                                     <select className="select select-bordered w-full" defaultValue="default" {...register("upazila", { required: true })}>
                                         <option disabled value="default">Select a upazila of dhaka</option>
                                         <option value="DakkhinKhan">DakkhinKhan</option>
-                                        <option value="khilkhet">khilkhet</option>
-                                        <option value="Biman_bandar">Biman Bandar</option>
                                     </select>
                                     {errors.upazila?.type === "required" && <span className="text-red-600">This field is required</span>}
-                                </div>
+                                </div> */}
 
                                 {/* <div className="form-control">
                                     <label className="label">
@@ -168,12 +154,12 @@ const Register = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <input type="submit" className="btn bg-[#D1A054]" value="Register" />
+                                <input type="submit" className="btn bg-[#8aeed5] font-bold" value="Register" />
                             </div>
 
                         </form>
                         <div className="text-center mb-4">
-                            <p><small>Already have an account? <Link className="text-[#D1A054]" to="/login">Go to log in</Link></small></p>
+                            <p><small>Already have an account? <Link className="text-[#4479e1] font-bold" to="/login">Go to log in</Link></small></p>
                         </div>
                     </div>
                 </div>

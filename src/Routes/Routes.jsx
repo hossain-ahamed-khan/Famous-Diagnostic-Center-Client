@@ -7,8 +7,17 @@ import Contact from "../Pages/Contact/Contact";
 import AllTests from "../Pages/AllTests/AllTests";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import Register from "../Pages/Register/Register";
-import UserProfile from "../Pages/UserProfile/UserProfile";
-import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../Layout/Dashboard";
+import AdminHome from "../Pages/Dashboard/Admin/AdminHome";
+import ManageTests from "../Pages/Dashboard/Admin/ManageTests";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
+import AddTests from "../Pages/Dashboard/Admin/AddTests";
+import AllBanner from "../Pages/Dashboard/Admin/AllBanner";
+import AddBanner from "../Pages/Dashboard/Admin/AddBanner";
+import Reservation from "../Pages/Dashboard/Admin/Reservation";
+import MyProfile from "../Pages/Dashboard/User/MyProfile";
+import Appointments from "../Pages/Dashboard/User/Appointments";
+import TestResults from "../Pages/Dashboard/User/TestResults";
 
 
 export const router = createBrowserRouter([
@@ -34,10 +43,6 @@ export const router = createBrowserRouter([
                 element: <Contact></Contact>
             },
             {
-                path: "/user-profile",
-                element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
-            },
-            {
                 path: "/login",
                 element: <Login></Login>
             },
@@ -47,4 +52,55 @@ export const router = createBrowserRouter([
             },
         ]
     },
+    {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>,
+        children: [
+
+            // admin routes 
+            {
+                path: "admin-home",
+                element: <AdminHome></AdminHome>
+            },
+            {
+                path: "all-users",
+                element: <AllUsers></AllUsers>
+            },
+            {
+                path: "add-tests",
+                element: <AddTests></AddTests>
+            },
+            {
+                path: "manage-tests",
+                element: <ManageTests></ManageTests>
+            },
+            {
+                path: "reservation",
+                element: <Reservation></Reservation>
+            },
+            {
+                path: "add-banner",
+                element: <AddBanner></AddBanner>
+            },
+            {
+                path: "all-banners",
+                element: <AllBanner></AllBanner>
+            },
+
+            // user routes 
+
+            {
+                path: "my-profile",
+                element: <MyProfile></MyProfile>
+            },
+            {
+                path: "appointments",
+                element: <Appointments></Appointments>
+            },
+            {
+                path: "test-results",
+                element: <TestResults></TestResults>
+            },
+        ]
+    }
 ]);
