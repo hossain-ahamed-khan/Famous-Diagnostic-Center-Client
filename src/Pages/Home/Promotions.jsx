@@ -2,7 +2,7 @@
 const Promotions = () => {
     return (
         <section>
-            <h1>Promotio section</h1>
+            <h1>promotion</h1>
         </section>
     );
 };
