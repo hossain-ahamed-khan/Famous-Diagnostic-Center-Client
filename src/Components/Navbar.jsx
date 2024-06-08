@@ -41,7 +41,7 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end flex justify-end gap-2">
                         {
-                            user ? <> <span>Welcome {user?.displayName}</span>
+                            user ? <>
                                 <Link to="/dashboard/admin-home"><button className="btn">Dashboard</button></Link>
                                 <button onClick={handleLogOut} className="btn">Log out</button>
                             </> :

@@ -13,21 +13,16 @@ const Register = () => {
 
 
     const onSubmit = data => {
-        console.log(data);
         createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser)
-
+            .then(() => {
                 updateUserProfile(data.name)
                     .then(() => {
-                        console.log("user profile updated")
-
                         // send user info to the database 
                         const userInfo = {
                             name: data.name,
                             email: data.email,
                             blood_group: data.blood_group,
+                            status: "active",
                             // district: data.district,
                             // upazila: data.upazila,
                         }

@@ -18,6 +18,8 @@ import Reservation from "../Pages/Dashboard/Admin/Reservation";
 import MyProfile from "../Pages/Dashboard/User/MyProfile";
 import Appointments from "../Pages/Dashboard/User/Appointments";
 import TestResults from "../Pages/Dashboard/User/TestResults";
+import TestDetails from "../Pages/TestDetails/TestDetails";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -33,6 +35,11 @@ export const router = createBrowserRouter([
             {
                 path: "/all-tests",
                 element: <AllTests></AllTests>
+            },
+            {
+                path: "/test-details/:id",
+                element: <TestDetails></TestDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
             },
             {
                 path: "/about-us",
@@ -54,7 +61,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
         children: [
 
             // admin routes 

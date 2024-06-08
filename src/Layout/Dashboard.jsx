@@ -3,12 +3,10 @@ import { RiAdminFill } from "react-icons/ri";
 import { FaUsers, FaFileMedical, FaCalendarCheck, FaRegImages, FaUserCircle, FaFileMedicalAlt } from "react-icons/fa";
 import { FaBookMedical, FaImage, FaCalendarDays } from "react-icons/fa6";
 import { TiHome } from 'react-icons/ti';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
-    // const [cart] = useAddToCart();
-    // const [isAdmin] = useAdmin();
-
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
 
     return (
         <div className="flex">

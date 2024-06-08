@@ -2,6 +2,7 @@ import { FiPhoneCall } from "react-icons/fi";
 import { FaRegHourglassHalf } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { FaAmbulance } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const banner = () => {
     return (
@@ -12,7 +13,7 @@ const banner = () => {
                     <div className="max-w-lg ">
                         <h1 className="mb-5 text-5xl font-bold text-white">Title here</h1>
                         <p className="mb-5 pt-6 pb-16 text-white">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn bg-[#8aeed5] font-bold">All tests</button>
+                        <Link to="/all-tests"><button className="btn bg-[#8aeed5] font-bold">All tests</button></Link>
                     </div>
                     <div className="max-w-lg  px-10 py-4 font-bold bg-[#8aeed5] flex flex-col justify-center items-center rounded-xl text-center">
                         <p>use coupon</p>
