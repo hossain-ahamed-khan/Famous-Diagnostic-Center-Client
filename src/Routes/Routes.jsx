@@ -20,6 +20,8 @@ import Appointments from "../Pages/Dashboard/User/Appointments";
 import TestResults from "../Pages/Dashboard/User/TestResults";
 import TestDetails from "../Pages/TestDetails/TestDetails";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
+import UpdateTest from "../Pages/Dashboard/Admin/UpdateTest";
 
 
 export const router = createBrowserRouter([
@@ -67,31 +69,37 @@ export const router = createBrowserRouter([
             // admin routes 
             {
                 path: "admin-home",
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: "all-users",
-                element: <AllUsers></AllUsers>
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
                 path: "add-tests",
-                element: <AddTests></AddTests>
+                element: <AdminRoute><AddTests></AddTests></AdminRoute>
             },
             {
                 path: "manage-tests",
-                element: <ManageTests></ManageTests>
+                element: <AdminRoute><ManageTests></ManageTests></AdminRoute>
             },
             {
-                path: "reservation",
-                element: <Reservation></Reservation>
+                path: "update-test/:id",
+                element: <AdminRoute><UpdateTest></UpdateTest></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
+            },
+            {
+                path: "reservation/:id",
+                element: <AdminRoute><Reservation></Reservation></AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
             },
             {
                 path: "add-banner",
-                element: <AddBanner></AddBanner>
+                element: <AdminRoute><AddBanner></AddBanner></AdminRoute>
             },
             {
                 path: "all-banners",
-                element: <AllBanner></AllBanner>
+                element: <AdminRoute><AllBanner></AllBanner></AdminRoute>
             },
 
             // user routes 

@@ -1,8 +1,12 @@
+import { useLoaderData } from "react-router-dom";
 
 const Reservation = () => {
+
+    const testReservations = useLoaderData();
+
     return (
         <div>
-            <h1>reservation</h1>
+            <h1>reservations for this {testReservations.title} are:</h1>
         </div>
     );
 };

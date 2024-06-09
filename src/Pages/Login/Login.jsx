@@ -23,10 +23,7 @@ const Login = () => {
         const password = form.get('password');
 
         signIn(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user);
-
+            .then(() => {
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -36,14 +33,6 @@ const Login = () => {
                 });
 
                 navigate(from, { replace: true });
-
-                // axios.post('http://localhost:5000/jwt', user)
-                //     .then(res => {
-                //         console.log(res.data)
-                //         if (res.data.success) {
-                //             navigate("/");
-                //         }
-                //     })
             })
             .catch(error => {
                 console.error(error);

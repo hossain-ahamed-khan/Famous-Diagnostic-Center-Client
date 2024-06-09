@@ -1,9 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth();
+    const [isAdmin] = useAdmin();
 
     const handleLogOut = () => {
         logOut()
@@ -41,10 +43,14 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-end flex justify-end gap-2">
                         {
-                            user ? <>
-                                <Link to="/dashboard/admin-home"><button className="btn">Dashboard</button></Link>
-                                <button onClick={handleLogOut} className="btn">Log out</button>
-                            </> :
+                            user ? isAdmin ? <>
+                                <Link to="/dashboard/admin-home"><button className="btn bg-[#8aeed5]">Admin Dashboard</button></Link>
+                                <button onClick={handleLogOut} className="btn bg-[#63b9db]">Log out</button>
+                            </>
+                                : <>
+                                    <Link to="/dashboard/my-profile"><button className="btn bg-[#8aeed5]">Patient Portal</button></Link>
+                                    <button onClick={handleLogOut} className="btn bg-[#63b9db]">Log out</button>
+                                </> :
                                 <Link to="/login" className="btn bg-[#8aeed5] hover:bg-[#63b9db]">Login</Link>
                         }
                     </div>

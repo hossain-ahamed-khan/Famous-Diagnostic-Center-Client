@@ -1,14 +1,16 @@
+import { useLoaderData } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
-const AddTests = () => {
+const UpdateTest = () => {
     const axiosSecure = useAxiosSecure();
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm()
+    const updateTest = useLoaderData();
+    const { _id, title, image, date, price, short_description } = updateTest;
 
     const onSubmit = async (data) => {
-
-        const testItem = {
+        const updatedTestItem = {
             title: data.name,
             image: data.imageURL,
             date: data.date,
@@ -17,21 +19,21 @@ const AddTests = () => {
             price: parseFloat(data.price)
         }
 
-        const testRes = await axiosSecure.post("/tests", testItem)
-        if (testRes.data.insertedId) {
-            reset();
+        const testRes = await axiosSecure.put(`/tests/${_id}`, updatedTestItem)
+        if (testRes.data.modifiedCount > 0) {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: `${data.name} Added successfully`,
+                title: `${data.name} updated successfully`,
                 showConfirmButton: false,
                 timer: 1500
             });
         }
     }
+
     return (
         <div className="w-4/5 mx-auto">
-            <h1 className="text-4xl font-bold text-center">Add Test</h1>
+            <h1 className="text-4xl font-bold text-center">Update Test</h1>
             <div className="min-h-screen p-10">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -39,39 +41,39 @@ const AddTests = () => {
                             <div className="label">
                                 <span className="label-text">Test Name*</span>
                             </div>
-                            <input {...register("name", { required: true })} type="text" placeholder="test name" className="input input-bordered w-full" />
+                            <input {...register("name", { required: true })} defaultValue={title} type="text" placeholder="test name" className="input input-bordered w-full" />
                         </label>
 
                         <label className="form-control w-full">
                             <div className="label">
                                 <span className="label-text">Test Image URL*</span>
                             </div>
-                            <input {...register("imageURL", { required: true })} type="text" placeholder="image URL " className="input input-bordered w-full" />
+                            <input {...register("imageURL", { required: true })} defaultValue={image} type="text" placeholder="image URL " className="input input-bordered w-full" />
                         </label>
 
                         <label className="form-control w-full">
                             <div className="label">
                                 <span className="label-text">Date*</span>
                             </div>
-                            <input {...register("date", { required: true })} type="text" placeholder="DD/MM/YY" className="input input-bordered w-full" />
+                            <input {...register("date", { required: true })} defaultValue={date} type="text" placeholder="DD/MM/YY" className="input input-bordered w-full" />
                         </label>
 
                         <label className="form-control w-full">
                             <div className="label">
                                 <span className="label-text">Price*</span>
                             </div>
-                            <input {...register("price", { required: true })} type="number" placeholder="Price" className="input input-bordered w-full" />
+                            <input {...register("price", { required: true })} defaultValue={price} type="number" placeholder="Price" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <label className="form-control w-full my-4">
                         <div className="label">
                             <span className="label-text">Short Description*</span>
                         </div>
-                        <textarea {...register("description", { required: true })} className="textarea textarea-bordered w-full h-52" placeholder="Recipe Details"></textarea>
+                        <textarea {...register("description", { required: true })} defaultValue={short_description} className="textarea textarea-bordered w-full h-52" placeholder="Recipe Details"></textarea>
                     </label>
 
                     <button type="submit" className="btn bg-[#4479e1] text-white" >
-                        Add Test
+                        Update Test
                     </button>
                 </form>
             </div >
@@ -79,4 +81,4 @@ const AddTests = () => {
     );
 };
 
-export default AddTests;
+export default UpdateTest;
