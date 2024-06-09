@@ -5,7 +5,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const UpdateTest = () => {
     const axiosSecure = useAxiosSecure();
-    const { register, handleSubmit, reset } = useForm()
+    const { register, handleSubmit } = useForm()
     const updateTest = useLoaderData();
     const { _id, title, image, date, price, short_description } = updateTest;
 

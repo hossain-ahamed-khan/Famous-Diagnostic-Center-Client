@@ -9,10 +9,6 @@ const ManageTests = () => {
     const [tests, , refetch] = useTests();
     const axiosSecure = useAxiosSecure();
 
-    const handleUpdate = (id) => {
-        // update here 
-    }
-
     const handleDelete = (id) => {
         Swal.fire({
             title: "Are you sure?",
