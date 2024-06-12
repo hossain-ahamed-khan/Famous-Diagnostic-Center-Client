@@ -65,7 +65,7 @@ const Dashboard = () => {
                     <div className="divider"></div>
 
                     <li><NavLink to="/">
-                        <TiHome />
+                        <TiHome size={20} />
                         HOME
                     </NavLink></li>
                 </ul>

@@ -5,6 +5,7 @@ import { FaAmbulance } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const banner = () => {
+
     return (
         <div className="relative mb-36">
             <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/1nf9G0B/nurse-measuring-patient-blood-pressure.jpg)' }}>
@@ -12,7 +13,7 @@ const banner = () => {
                 <div className="w-4/5 flex flex-col lg:flex-row gap-4 justify-between">
                     <div className="max-w-lg ">
                         <h1 className="mb-5 text-5xl font-bold text-white">Title here</h1>
-                        <p className="mb-5 pt-6 pb-16 text-white">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <p className="mb-5 pt-6 pb-16 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, aspernatur.</p>
                         <Link to="/all-tests"><button className="btn bg-[#8aeed5] font-bold">All tests</button></Link>
                     </div>
                     <div className="max-w-lg  px-10 py-4 font-bold bg-[#8aeed5] flex flex-col justify-center items-center rounded-xl text-center">

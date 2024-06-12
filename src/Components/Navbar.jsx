@@ -3,7 +3,6 @@ import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
 
 const Navbar = () => {
-
     const { user, logOut } = useAuth();
     const [isAdmin] = useAdmin();
 
@@ -41,6 +40,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
+
                     <div className="navbar-end flex justify-end gap-2">
                         {
                             user ? isAdmin ? <>
