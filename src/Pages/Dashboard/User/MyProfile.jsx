@@ -7,15 +7,13 @@ const MyProfile = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    const { data: loggedUser } = useQuery({
+    const { data: loggedUser = {} } = useQuery({
         queryKey: [user?.email, "loggedUser"],
         queryFn: async () => {
             const res = await axiosSecure.get(`/loggedUser/${user.email}`)
             return res.data;
         }
     })
-
-    console.log(loggedUser);
 
     return (
         <div className="w-4/5 mx-auto">
