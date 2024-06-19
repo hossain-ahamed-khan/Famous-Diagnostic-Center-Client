@@ -27,6 +27,7 @@ const Featured = () => {
                                         <span className="badge badge-success mr-2">{test.slots[1]}</span>
                                         <span className="badge badge-warning mr-2">{test.slots[2]}</span>
                                         <span className="badge badge-error mr-2">{test.slots[3]}</span>
+                                        <span className="badge badge-error mr-2">{test.slots[4]}</span>
                                     </p>
                                     <div className="card-actions justify-center mt-4">
                                         <Link to={`/test-details/${test._id}`}><button className="btn bg-[#8aeed5] font-bold">Details</button></Link>

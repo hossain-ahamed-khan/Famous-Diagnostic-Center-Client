@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ test }) => {
     const { _id, price, title, date } = test;
@@ -78,7 +79,16 @@ const CheckoutForm = ({ test }) => {
                 }
 
                 const res = await axiosSecure.post('/booked-tests', bookedTests);
-                console.log('payment saved', res);
+                console.log('payment saved', res.data);
+                if (res.data?.bookedTestResult?.insertedId) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Payment completed",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
             }
         }
     }

@@ -16,7 +16,7 @@ const AllTests = () => {
                 {
                     tests.map(test =>
                         <div key={test._id}>
-                            <div className="card shadow-xl">
+                            <div className="card shadow-xl h-[640px]">
                                 <figure><img className="w-full h-72" src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album" /></figure>
                                 <div className="card-body ">
                                     <h2 className="card-title text-3xl font-bold">{test.title}</h2>
@@ -27,6 +27,7 @@ const AllTests = () => {
                                         <span className="badge badge-success mr-2">{test.slots[1]}</span>
                                         <span className="badge badge-warning mr-2">{test.slots[2]}</span>
                                         <span className="badge badge-error mr-2">{test.slots[3]}</span>
+                                        <span className="badge badge-error mr-2">{test.slots[4]}</span>
                                     </p>
                                     <div className="card-actions justify-end">
                                         <Link to={`/test-details/${test._id}`}><button className="btn bg-[#8aeed5] font-bold">Details</button></Link>
