@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const TestDetails = () => {
 
@@ -22,8 +22,15 @@ const TestDetails = () => {
                             <span className="badge badge-error mr-2">{test.slots[3]}</span>
                         </p>
 
-                        {/* Modal button start  */}
                         <div className="mt-10">
+                            <Link to={`/payment/${test._id}`}>
+                                <button className="btn btn-md bg-[#8aeed5] justify-end">Book Now
+                                </button>
+                            </Link>
+                        </div>
+
+                        {/* Modal button start  */}
+                        {/* <div className="mt-10">
                             <button
                                 onClick={() => document.getElementById('my_modal_3').showModal()}
                                 className="btn btn-md bg-[#8aeed5] justify-end">Book Now</button>
@@ -61,13 +68,13 @@ const TestDetails = () => {
                                     </form>
                                 </div>
                             </dialog>
-                        </div>
+                        </div> */}
                         {/* modal button end  */}
 
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

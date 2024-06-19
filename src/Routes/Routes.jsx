@@ -22,6 +22,7 @@ import TestDetails from "../Pages/TestDetails/TestDetails";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import UpdateTest from "../Pages/Dashboard/Admin/UpdateTest";
+import Payment from "../Pages/Payment/Payment";
 
 
 export const router = createBrowserRouter([
@@ -50,6 +51,11 @@ export const router = createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact></Contact>
+            },
+            {
+                path: "/payment/:id",
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
             },
             {
                 path: "/login",

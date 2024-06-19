@@ -14,7 +14,8 @@ const AddTests = () => {
             date: data.date,
             slots: ["09:00 AM", "10:00 AM", "11:00 AM", "02:00 PM", "04:00 PM"],
             short_description: data.description,
-            price: parseFloat(data.price)
+            price: parseFloat(data.price),
+            slots_count: 5
         }
 
         const testRes = await axiosSecure.post("/tests", testItem)
