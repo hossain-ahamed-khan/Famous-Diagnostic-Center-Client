@@ -29,7 +29,7 @@ const AllTests = () => {
                                         <span className="badge badge-error mr-2">{test.slots[3]}</span>
                                         <span className="badge badge-error mr-2">{test.slots[4]}</span>
                                     </p>
-                                    <div className="card-actions justify-end">
+                                    <div className="card-actions justify-center">
                                         <Link to={`/test-details/${test._id}`}><button className="btn bg-[#8aeed5] font-bold">Details</button></Link>
                                     </div>
                                 </div>

@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/payment/:id",
-                element: <Payment></Payment>,
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
             },
             {
