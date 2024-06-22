@@ -26,13 +26,17 @@ const Reservation = () => {
 
         const testRes = await axiosSecure.post(`/submit-result/${test._id}`, submit_test)
         if (testRes.data.insertedId) {
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: 'Result submitted successfully',
-                showConfirmButton: false,
-                timer: 1500
-            });
+            const res = await axiosSecure.delete(`/bookedTests/${test._id}`)
+            if (res.data.deletedCount > 0) {
+                refetch();
+                Swal.fire({
+                    position: "center",
+                    title: "Test Result submitted successfully",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
         }
     }
 
