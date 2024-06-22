@@ -73,7 +73,7 @@ const ManageTests = () => {
                                     </td>
                                     <td>{test.price}</td>
                                     <td>
-                                        <Link to={`/dashboard/reservation/${test._id}`}>
+                                        <Link to="/dashboard/reservation">
                                             <button
                                                 className="btn bg-[#63b9db] btn-xl hover:bg-red-500">
                                                 <IoCalendarSharp className="text-white"></IoCalendarSharp>

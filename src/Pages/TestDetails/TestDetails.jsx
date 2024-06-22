@@ -47,51 +47,7 @@ const TestDetails = () => {
                                     <button onClick={handleBookNow} className="btn btn-md bg-[#8aeed5] justify-end">Book Now
                                     </button>
                                 </div>
-
                         }
-
-                        {/* Modal button start  */}
-                        {/* <div className="mt-10">
-                            <button
-                                onClick={() => document.getElementById('my_modal_3').showModal()}
-                                className="btn btn-md bg-[#8aeed5] justify-end">Book Now</button>
-
-                            <dialog id="my_modal_3" className="modal">
-                                <div className="modal-box">
-                                    <h2 className="font-bold text-2xl text-center mb-3">Payment</h2>
-
-                                    <button
-                                        onClick={() => document.getElementById('my_modal_3').close()}
-                                        className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-
-                                    <form>
-
-                                        <div className="grid grid-cols-1 gap-2">
-
-                                            <p><span className="font-bold">Price:</span> $240</p>
-
-                                            <label className="form-control">
-                                                <div className="label">
-                                                    <span className="label-text">Promocode</span>
-                                                </div>
-                                                <input type="text" name="pickupLocation" className="input input-bordered w-full " />
-                                            </label>
-
-                                            <button className="btn bg-[#8aeed5] font-bold">Apply Promocode</button>
-
-                                            <p><span className="font-bold">Payable Price:</span> $140</p>
-                                        </div>
-
-                                        <input
-                                            onClick={() => document.getElementById('my_modal_3').close()}
-                                            className="my-2 w-full py-2 bg-[#4479e1] rounded-lg cursor-pointer text-slate-200 text-xl font-bold" type="submit" value="Pay" />
-
-                                    </form>
-                                </div>
-                            </dialog>
-                        </div> */}
-                        {/* modal button end  */}
-
                     </div>
                 </div>
             </div>

@@ -24,7 +24,6 @@ import AdminRoute from "./AdminRoute";
 import UpdateTest from "../Pages/Dashboard/Admin/UpdateTest";
 import Payment from "../Pages/Payment/Payment";
 
-
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -95,9 +94,8 @@ export const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
             },
             {
-                path: "reservation/:id",
-                element: <AdminRoute><Reservation></Reservation></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
+                path: "reservation",
+                element: <AdminRoute><Reservation></Reservation></AdminRoute>
             },
             {
                 path: "add-banner",
