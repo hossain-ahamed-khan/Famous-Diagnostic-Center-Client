@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
             {
                 path: "/test-details/:id",
                 element: <TestDetails></TestDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
+                loader: ({ params }) => fetch(`https://diagnostic-center-server-one.vercel.app/tests/${params.id}`)
             },
             {
                 path: "/about-us",
@@ -54,7 +54,7 @@ export const router = createBrowserRouter([
             {
                 path: "/payment/:id",
                 element: <PrivateRoute><Payment></Payment></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
+                loader: ({ params }) => fetch(`https://diagnostic-center-server-one.vercel.app/tests/${params.id}`)
             },
             {
                 path: "/login",
@@ -91,7 +91,7 @@ export const router = createBrowserRouter([
             {
                 path: "update-test/:id",
                 element: <AdminRoute><UpdateTest></UpdateTest></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/tests/${params.id}`)
+                loader: ({ params }) => fetch(`https://diagnostic-center-server-one.vercel.app/tests/${params.id}`)
             },
             {
                 path: "reservation",
