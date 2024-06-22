@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaUsers } from "react-icons/fa6";
 import Swal from "sweetalert2";
+import { FaEdit } from "react-icons/fa";
 
 
 const AllUsers = () => {
@@ -94,28 +95,28 @@ const AllUsers = () => {
                                                         onClick={() => document.getElementById('my_modal_3').close()}
                                                         className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 
-                                                    <form>
+                                                    <div className="w-full mx-auto">
+                                                        <img className="w-20 h-20 my-4" src={user.image} alt="profile image" />
+                                                        <div className="grid grid-cols-2 gap-10 bg-[#8aeed5] p-10 rounded-2xl">
+                                                            <div>
+                                                                <h3 className="text-2xl font-bold">Name</h3>
+                                                                <p>{user.name}</p>
+                                                            </div>
+                                                            <div>
+                                                                <h3 className="text-2xl font-bold">Email</h3>
+                                                                <p>{user.email}</p>
+                                                            </div>
 
-                                                        <div className="grid grid-cols-1 gap-2">
-
-                                                            <p><span className="font-bold">Price:</span> $240</p>
-
-                                                            <label className="form-control">
-                                                                <div className="label">
-                                                                    <span className="label-text">Promocode</span>
-                                                                </div>
-                                                                <input type="text" name="pickupLocation" className="input input-bordered w-full " />
-                                                            </label>
-
-                                                            <button className="btn bg-[#8aeed5] font-bold">Apply Promocode</button>
-
-                                                            <p><span className="font-bold">Payable Price:</span> $140</p>
+                                                            <div>
+                                                                <h3 className="text-2xl font-bold">Blood Group</h3>
+                                                                <p>{user.blood_group}</p>
+                                                            </div>
+                                                            <div>
+                                                                <h3 className="text-2xl font-bold">Status</h3>
+                                                                <p>{user.status}</p>
+                                                            </div>
                                                         </div>
-
-                                                        <input
-                                                            onClick={() => document.getElementById('my_modal_3').close()}
-                                                            className="my-2 w-full py-2 bg-[#4479e1] rounded-lg cursor-pointer text-slate-200 text-xl font-bold" type="submit" value="Pay" />
-                                                    </form>
+                                                    </div>
                                                 </div>
                                             </dialog>
                                         </div>

@@ -19,7 +19,7 @@ const TestDetails = () => {
         <div className="w-4/5 mx-auto">
             <div className="min-h-screen flex items-center">
                 <div className="flex flex-col lg:flex-row-reverse justify-between w-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+                    <img src={test.image} className="max-w-sm rounded-lg shadow-2xl" />
                     <div>
                         <h2 className="card-title text-3xl font-bold">{test.title}</h2>
                         <p className="my-6">{test.short_description}</p>

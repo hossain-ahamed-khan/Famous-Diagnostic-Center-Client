@@ -16,8 +16,8 @@ const Featured = () => {
                 {
                     tests.slice(0, 6).map(test =>
                         <div key={test._id}>
-                            <div className="card shadow-xl h-[640px]">
-                                <figure><img className="w-full h-72" src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg" alt="Album" /></figure>
+                            <div className="card shadow-xl h-[780px]">
+                                <figure><img className="w-full h-96" src={test.image} alt="Album" /></figure>
                                 <div className="card-body space-y-2">
                                     <h2 className="card-title text-3xl font-bold">{test.title}</h2>
                                     <p>{test.short_description}</p>
