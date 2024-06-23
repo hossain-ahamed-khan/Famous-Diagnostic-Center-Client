@@ -8,7 +8,7 @@ const banner = () => {
 
     return (
         <div className="relative mb-36">
-            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/1nf9G0B/nurse-measuring-patient-blood-pressure.jpg)' }}>
+            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://i.ibb.co/qmBWxwN/nurse-measuring-patient-blood-pressure.jpg)' }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="w-4/5 flex flex-col lg:flex-row gap-4 justify-between">
                     <div className="max-w-lg ">

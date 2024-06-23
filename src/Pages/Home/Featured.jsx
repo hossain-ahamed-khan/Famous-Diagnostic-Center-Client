@@ -6,9 +6,9 @@ const Featured = () => {
     const [tests] = useTests();
 
     return (
-        <section>
+        <section className="mb-10">
             <div className="w-2/3 mx-auto text-center py-6">
-                <h1 className="text-4xl font-bold mb-4"> All Tests</h1>
+                <h1 className="text-4xl font-bold mb-4">Featured Tests</h1>
                 <p className="my-8">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, earum odio? Sequi eos vel repellendus perspiciatis accusamus commodi molestias totam?</p>
             </div>
 
