@@ -1,8 +1,16 @@
-# React + Vite
+website Name: Famous Diagnostic Center
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live site: https://diagnostic-center-9996e.web.app/
 
-Currently, two official plugins are available:
+Features of the website:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- View the diagnostic center for all test details
+- Booking any test online
+- Payment through the stripe payment method
+- Firebase authentications for users
+- Patient and admin separate portal
+- Admin can manage user's information
+- Admin can change test status
+- User can view and edit their profile
+- Admin can view and cancel the appointments
+- JWT authentication for server-side protections
