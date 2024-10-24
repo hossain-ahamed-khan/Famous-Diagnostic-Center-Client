@@ -1,5 +1,7 @@
 website Name: Famous Diagnostic Center
 
+GitHub server link: https://github.com/hossain-ahamed-khan/Famous-Diagnostic-Center-Server
+
 Live site: https://diagnostic-center-9996e.web.app/
 
 Features of the website:
